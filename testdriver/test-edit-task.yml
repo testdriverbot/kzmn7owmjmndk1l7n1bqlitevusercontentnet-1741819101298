@@ -1,0 +1,34 @@
+version: 4.2.18
+session: 67d20ee8688455a08d68ae21
+steps:
+  - prompt: Add a task as a prerequisite.
+    commands:
+      - command: hover-text
+        text: Add a new task...
+        description: input field for adding a new task
+        action: click
+      - command: type
+        text: Prerequisite Task
+  - prompt: Add a task as a prerequisite.
+    commands:
+      - command: hover-text
+        text: Add
+        description: button to add the task
+        action: click
+  - prompt: Click on the edit icon next to the task.
+    commands:
+      - command: hover-image
+        description: edit icon next to Prerequisite Task
+        action: click
+  - prompt: Change the task name and save.
+    commands:
+      - command: hover-text
+        text: Prerequisite Task
+        description: input field for editing the task name
+        action: click
+      - command: type
+        text: Updated Task Name
+      - command: hover-text
+        text: Save
+        description: button to save the edited task
+        action: click
