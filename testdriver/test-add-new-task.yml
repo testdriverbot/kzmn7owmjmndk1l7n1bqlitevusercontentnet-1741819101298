@@ -1,0 +1,31 @@
+version: 4.2.18
+session: 67d20ee26c034d81f8c8bbd5
+steps:
+  - prompt: Click on the "Add a new task" input field.
+    commands:
+      - command: hover-text
+        text: Add a new task...
+        description: input field for adding a new task
+        action: click
+  - prompt: Type a task name and click "Add."
+    commands:
+      - command: hover-text
+        text: Add a new task...
+        description: input field for adding a new task
+        action: click
+      - command: type
+        text: Sample Task
+      - command: hover-text
+        text: Add
+        description: button to add the task
+        action: click
+  - prompt: Assert that the task appears in the task list.
+    commands:
+      - command: assert
+        expect: Sample Task is visible in the task list
+  - prompt: >-
+      Assert there are no errors displayed.  # Use the content of the file from
+      the environment
+    commands:
+      - command: assert
+        expect: no error messages are visible on the screen
