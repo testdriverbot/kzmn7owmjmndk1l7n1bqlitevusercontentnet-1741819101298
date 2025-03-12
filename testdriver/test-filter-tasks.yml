@@ -1,0 +1,85 @@
+version: 4.2.18
+session: 67d20ee8688455a08d68ae1f
+steps:
+  - prompt: Add multiple tasks with different priorities.
+    commands:
+      - command: hover-text
+        text: Add a new task...
+        description: input field for adding a new task
+        action: click
+      - command: type
+        text: Task 1
+      - command: hover-text
+        text: Medium
+        description: priority dropdown
+        action: click
+      - command: hover-text
+        text: High
+        description: select high priority
+        action: click
+      - command: hover-text
+        text: Add
+        description: button to add the task
+        action: click
+  - prompt: Add multiple tasks with different priorities.
+    commands:
+      - command: hover-text
+        text: Add a new task...
+        description: input field for adding a new task
+        action: click
+      - command: type
+        text: Task 2
+      - command: hover-text
+        text: Medium
+        description: priority dropdown
+        action: click
+      - command: hover-text
+        text: Medium
+        description: select medium priority
+        action: click
+      - command: hover-text
+        text: Add
+        description: button to add the task
+        action: click
+      - command: hover-text
+        text: Add a new task...
+        description: input field for adding a new task
+        action: click
+      - command: type
+        text: Task 3
+      - command: hover-text
+        text: Medium
+        description: priority dropdown
+        action: click
+      - command: hover-text
+        text: Low
+        description: select low priority
+        action: click
+      - command: hover-text
+        text: Add
+        description: button to add the task
+        action: click
+  - prompt: Use the "Filters" dropdown to select a priority.
+    commands:
+      - command: hover-text
+        text: All Priorities
+        description: filters dropdown
+        action: click
+      - command: hover-text
+        text: High
+        description: select high priority from dropdown
+        action: click
+  - prompt: Assert that only tasks with the selected priority are displayed.
+    commands:
+      - command: assert
+        expect: only tasks with High priority are displayed
+  - prompt: >-
+      Clear the filter and assert all tasks are shown again.  # Use the content
+      of the file from the environment
+    commands:
+      - command: hover-text
+        text: Clear
+        description: clear the filter
+        action: click
+      - command: assert
+        expect: all tasks are displayed
